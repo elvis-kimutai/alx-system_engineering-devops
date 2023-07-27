@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Displaying Best School 10 times and dispay Hi the 9th time
+
+best=0
+while [ $best -le 10 ]
+do
+	if [ $best -eq 9 ]; then
+		echo "Hi"
+	else
+		echo "Best School"
+	fi
+	((best++))
+done
