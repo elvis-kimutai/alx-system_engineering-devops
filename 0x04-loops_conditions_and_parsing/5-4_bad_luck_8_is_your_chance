@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# 4th dispays "good luck"
+# 8th dispays "back luck" 
+# else it displays "best school"
+
+best=1
+while [ $best -le 10 ]
+do
+	if [ $best -eq 4 ]; then
+		echo "bad luck"
+
+	elif [ $best -eq 8 ]; then
+		echo "good luck"
+
+	else
+		echo "Best School"
+
+	fi
+	((best++))
+done
