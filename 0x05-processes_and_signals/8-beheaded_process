@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Terminate the infnite process
+
+pkill -9 "bash ./7-highlander" -f
