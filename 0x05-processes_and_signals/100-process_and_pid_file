@@ -4,23 +4,15 @@
 # Deletes the file created and terminaes itself  when receiving
 # a SIGQUIT or SIGTERM signal
 
-i="1"
-sudo touch /var/run/holbertonscript.pid
-sudo bash -c 'echo $$ > /var/run/holbertonscript.pid'
-hate()
-{
-echo "I hate the kill command"
-sudo rm /var/run/holbertonscript.pid
-}
-no_love()
-{
-echo "Y U no love me?!"
-}
-trap 'hate; exit' SIGTERM
-trap 'no_love; exit' SIGINT
-trap 'sudo rm /var/run/holbertonscript.pid; exit' SIGQUIT
-while [ $i -eq 1 ]
+file=/var/run/myscript.pid
+echo $$ > "$file"
+
+while true
 do
-echo "To infinity and beyond"
-sleep 2
+	echo "To infinity and beyond"
+	sleep 2
+
+	trap 'echo "Y U no love me?!"' SIGINT
+	trap 'rm $file; exit' SIGQUIT
+	trap 'echo I hate the kill command; rm $file; exit' SIGTERM
 done
