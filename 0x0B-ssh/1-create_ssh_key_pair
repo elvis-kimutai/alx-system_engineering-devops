@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+private_key_name="school"
+ssh-keygen -t rsa -b 4096 -f "$private_key_name"
+sh-keygen -p -f "$private_key_name" -P "" -N "betty"
