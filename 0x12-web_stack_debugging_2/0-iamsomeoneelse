@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Use 'sudo' to switch to the specified user and then run 'whoami'
+sudo -u "$1" whoami
