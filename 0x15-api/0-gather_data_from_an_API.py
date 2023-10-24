@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
         """
             Request data
-        """    
+        """ 
         user = requests.get(user_url).json()
         todos = requests.get(user_todos_url).json()
 
