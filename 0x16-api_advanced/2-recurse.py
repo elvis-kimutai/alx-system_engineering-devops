@@ -1,17 +1,18 @@
 #!/usr/bin/python3
 """
-Recursive function that queries the Reddit API
+   recursive function that queries the Reddit API
 """
 
 import requests
 
+
 def recurse(subreddit, hot_list=[], after=None):
     # Set up the Reddit API URL
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    
+
     # Set a custom User-Agent to avoid Too Many Requests errors
-    headers = {'User-Agent': 'my_bot/1.0'}  
-    
+    headers = {'User-Agent': 'my_bot/1.0'}
+
     # Set parameters for the API request
     params = {'limit': 100, 'after': after}
 
@@ -31,7 +32,7 @@ def recurse(subreddit, hot_list=[], after=None):
             # Extract titles from the posts and extend the hot_list
             hot_list.extend([post['data']['title'] for post in posts])
 
-            # Recursively call the function with the 'after' parameter for pagination
+            # Recursively call the function with the 'after'
             next_page = data['data']['after']
             if next_page is not None:
                 return recurse(subreddit, hot_list, after=next_page)
@@ -39,6 +40,7 @@ def recurse(subreddit, hot_list=[], after=None):
                 return hot_list
     else:
         return None  # Invalid subreddit or other error
+
 
 if __name__ == '__main__':
     import sys
