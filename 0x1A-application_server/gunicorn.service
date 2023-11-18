@@ -1,0 +1,9 @@
+[Unit]
+Description=Gunicorn service for AirBnB Clone
+
+[Service]
+ExecStart=/home/ubuntu/.local/bin/gunicorn --workers 3 --bind 0.0.0.0:5002 api.v1.app:app
+WorkingDirectory=/home/ubuntu/AirBnB_clone_v3
+
+[Install]
+WantedBy=multi-user.target
